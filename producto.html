@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - Tridify3D</title>
+    <link rel="stylesheet" href="css/principal.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">Tridify<span>3D</span></a>
+    </header>
+
+    <main class="container">
+        <a href="index.html" class="btn-back">← Volver al catálogo</a>
+        
+        <div class="product-detail-container">
+            <div class="detail-carousel" id="slider-producto">
+                <div class="carousel-slider" id="imagenes-container">
+                    </div>
+                <button class="carousel-control prev" id="btn-prev">&#10094;</button>
+                <button class="carousel-control next" id="btn-next">&#10095;</button>
+            </div>
+
+            <div class="detail-info">
+                <span class="tag" id="prod-cat">Categoría</span>
+                <h1 id="prod-nombre">Nombre del Producto</h1>
+                <p class="price" id="prod-precio">$0</p>
+                <p id="prod-desc">Cargando descripción...</p>
+                
+                <a href="#" id="btn-wsp" class="btn-whatsapp" target="_blank">💬 Pedir por WhatsApp</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    
+    <script>
+        // Variables globales para el control del carrusel interno
+        let fotoActual = 0;
+        let totalFotos = 0;
+
+        function cambiarFoto(direccion) {
+            const fotos = document.querySelectorAll('#imagenes-container .slide');
+            if (fotos.length === 0) return;
+            
+            fotos[fotoActual].classList.remove('active');
+            fotoActual = (fotoActual + direccion + fotos.length) % fotos.length;
+            fotos[fotoActual].classList.add('active');
+        }
+
+        // Ejecutar ni bien la página esté lista
+        window.addEventListener('load', () => {
+            const miTelefono = "1162397827"; // Reemplaza con tu celular real con código de país
+
+            // 1. Obtener el ID desde la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const prodId = parseInt(urlParams.get('id'));
+
+            // 2. Verificar si la lista 'productos' existe y buscar el elemento
+            if (typeof productos !== 'undefined' && productos.length > 0) {
+                const prod = productos.find(p => p.id === prodId);
+
+                if (prod) {
+                    // 3. Reemplazar los textos fijos por los reales del producto
+                    document.getElementById('prod-cat').innerText = prod.categoria;
+                    document.getElementById('prod-nombre').innerText = prod.nombre;
+                    document.getElementById('prod-precio').innerText = `$${prod.precio}`;
+                    document.getElementById('prod-desc').innerText = prod.desc;
+
+                    // 4. Limpiar contenedor e inyectar las imágenes del arreglo
+                    const imgContainer = document.getElementById('imagenes-container');
+                    imgContainer.innerHTML = ""; 
+                    
+                    prod.imagenes.forEach((imagenUrl, index) => {
+                        const claseActiva = index === 0 ? 'slide active' : 'slide';
+                        imgContainer.innerHTML += `
+                            <div class="${claseActiva}">
+                                <img src="${imagenUrl}" alt="${prod.nombre} - vista ${index + 1}">
+                            </div>
+                        `;
+                    });
+                    
+                    totalFotos = prod.imagenes.length;
+
+                    // Ocultar flechas si el producto solo tiene 1 foto
+                    if (totalFotos <= 1) {
+                        document.getElementById('btn-prev').style.display = 'none';
+                        document.getElementById('btn-next').style.display = 'none';
+                    } else {
+                        // Asignar los eventos de click a las flechas del producto
+                        document.getElementById('btn-prev').onclick = () => cambiarFoto(-1);
+                        document.getElementById('btn-next').onclick = () => cambiarFoto(1);
+                    }
+
+                    // 5. Configurar el enlace personalizado de WhatsApp
+                    const mensaje = encodeURIComponent(`¡Hola! Me interesa encargar este producto 3D:\n\n*Producto:* ${prod.nombre}\n*Categoría:* ${prod.categoria}\n*Precio:* $${prod.precio}\n\n¿Me podrías indicar los pasos a seguir?`);
+                    document.getElementById('btn-wsp').href = `https://wa.me/${miTelefono}?text=${mensaje}`;
+                    
+                } else {
+                    document.querySelector('.product-detail-container').innerHTML = "<p style='padding:40px; text-align:center; width:100%;'>Error: El producto solicitado no existe en el catálogo.</p>";
+                }
+            } else {
+                document.querySelector('.product-detail-container').innerHTML = "<p style='padding:40px; text-align:center; width:100%;'>Error al cargar la base de datos de productos.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
