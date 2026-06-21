@@ -128,8 +128,8 @@ const productos = [
         precio: 14000, 
         categoria: "Decoración", 
         imagenes: [
-            "img/sujetalibrosHarryPotter1.webp", 
-            "img/sujetalibrosHarryPotter2.webp", 
+            "img/sujetaLibrosHarryPotter1.webp", 
+            "img/sujetaLibrosHarryPotter2.webp", 
         ], 
         desc: "⚡ Sujetalibros Harry Potter 3D - ¡Magia en tu biblioteca! ⚡¿Tus libros de la saga necesitan orden? Dale un toque mágico a tu estante con estos sujetalibros exclusivos de alta calidad. ¡El regalo ideal para cualquier fan de Hogwarts!✅ Diseño Detallado: Disponible en modelos icónicos (Hogwarts, Andén 9 3/4, Reliquias de la Muerte). ✅ Resistentes y Estables: Pensados para sostener desde tomos pesados hasta tus mangas favoritos. ✅ Terminación Premium: Color Negro Mate(consultar disponibilidad de mas colores).💰 PRECIOS:Unidad: $14.000(Oferta): $24.000 ✨ (¡Llevá los dos y ahorrá!)"
     },
