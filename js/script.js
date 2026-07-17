@@ -66,7 +66,7 @@ const productos = [
      { 
         id: 6, 
         nombre: "Trono de Hierro Game Of Thrones", 
-        precio: 15000,
+        precio: 20000,
         categoria: "Decoración", 
         imagenes: [
             "img/tronohierro1.jpg", 
