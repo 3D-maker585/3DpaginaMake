@@ -183,6 +183,21 @@ const productos = [
         ], 
         desc: "Cartel de puerta de Pomni de The Amazing Digital Circus ." 
     },
+        { 
+        id: 18, 
+        nombre: "Llavero las islas Malvinas son Argentinas ", 
+        precio: 2000, 
+        categoria: "Llaveros", 
+        imagenes: [
+            "img/visteALamoda.jpeg", 
+            "img/01.png",
+            "img/02.png",
+            "img/03.png",
+            "img/04.png",
+            "img/05.png"
+        ], 
+        desc: " Llavero impreso en 3D con la bandera argentina y la frase Las Malvinas son Argentinas.⚠️ Venta a partir de 5 unidades.Opciones disponibles:- Parte trasera lisa.- Parte trasera con las Islas Malvinas en relieve.Precios:- 5 unidades: $8000 - 10 unidades: $16000- 15 unidades: $24000- 20 unidades: $32000 Ideal para souvenirs, actos escolares, eventos patrios, regalos o reventa.📩 Consultá por pedidos de mayor cantidad." 
+    },
 ];
 
 // --- 1. MENÚ DESPLEGABLE EN CELULARES ---
