@@ -190,10 +190,10 @@ const productos = [
         categoria: "Llaveros", 
         imagenes: [
             "img/malvina1.jpeg", 
-            "img/malvina2.png",
-            "img/malvina3.png",
-            "img/malvina4.png",
-            "img/malvina5.png",
+            "img/malvina2.jpeg",
+            "img/malvina3.jpeg",
+            "img/malvina4.jpeg",
+            "img/malvina5.jpeg",
         ], 
         desc: " Llavero impreso en 3D con la bandera argentina y la frase Las Malvinas son Argentinas.⚠️ Venta a partir de 5 unidades.Opciones disponibles:- Parte trasera lisa.- Parte trasera con las Islas Malvinas en relieve.Precios:- 5 unidades: $8000 - 10 unidades: $16000- 15 unidades: $24000- 20 unidades: $32000 Ideal para souvenirs, actos escolares, eventos patrios, regalos o reventa.📩 Consultá por pedidos de mayor cantidad." 
     },
